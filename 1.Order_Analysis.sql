@@ -9,14 +9,18 @@ WHERE ORDER_APPROVED_AT IS NOT NULL
 GROUP BY 1
 ORDER BY 2
 ---Q2: Analyze the number of orders based on order status on a monthly basis
-select 
-	to_char(date_trunc('month',order_approved_at)::date,'mm-yyyy') as order_month,
-	order_status,
-	count(order_id) as siparis_sayisi
-from orders
-where order_approved_at is not null
-group by 1,2
-order by 1,2
+SELECT 
+    TO_CHAR(DATE_TRUNC('month', order_approved_at)::date, 'mm-yyyy') AS order_month,
+    order_status,
+    COUNT(order_id) AS siparis_sayisi
+FROM 
+    orders
+WHERE 
+    order_approved_at IS NOT NULL
+GROUP BY 
+    1, 2
+ORDER BY 
+    1, 2;
 
 ----Q3: Analyze the number of orders based on product categories. What are the prominent categories during special occasions, such as New Year's, Valentine's Day, etc.?
 WITH special_days AS 
