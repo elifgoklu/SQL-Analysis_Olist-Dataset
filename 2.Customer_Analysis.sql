@@ -64,5 +64,3 @@ SELECT
 FROM first_part_table
 GROUP BY 1
 ORDER BY 2 desc
-
-----Q2: 
